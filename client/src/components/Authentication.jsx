@@ -4,6 +4,8 @@ import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 import { APP_NAME } from "../Data";
 
+//Authentication 
+
 const Authentication = (props) => {
   const [login, setLogin] = useState(true);
   const [text, setText] = useState("Sign Up");
