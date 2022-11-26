@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { LINK, FILL_ALL_DATA, PATTERN, INVALID_EMAIL  } from "../Data";
+import { USER_LINK, FILL_ALL_DATA, PATTERN, INVALID_EMAIL  } from "../Data";
 
 const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
   const [msg, setMsg] = useState("");
@@ -27,7 +27,7 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
     }
     else if(PATTERN.test(user.email)){
       axios
-      .post(`${LINK}adduser`, {
+      .post(`${USER_LINK}adduser`, {
         name: user.name,
         email: user.email,
         password: user.password,
@@ -52,9 +52,9 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
       <div className="flex justify-center mt-20">
         <div className="w-30 sm:w-80 lg:w-96">
           <form className="bg-indigo-200 shadow-2xl shadow-indigo-500 rounded-md px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
+            <div className="mb-6">
               <label
-                className="block text-indigo-900 text-sm font-bold mb-2"
+                className="block text-indigo-900 text-sm font-bold mb-6"
                 htmlFor="=name"
               >
                 Name
@@ -68,9 +68,9 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
                 placeholder="Name"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-6">
               <label
-                className="block text-indigo-900 text-sm font-bold mb-2"
+                className="block text-indigo-900 text-sm font-bold mb-6"
                 htmlFor="email"
               >
                 E-Mail
@@ -86,7 +86,7 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
             </div>
             <div className="mb-6">
               <label
-                className="block text-indigo-900 text-sm font-bold mb-2"
+                className="block text-indigo-900 text-sm font-bold mb-6"
                 htmlFor="password"
               >
                 Password
@@ -115,7 +115,7 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
               >
                 Sign Up
               </button>
-              <a
+              <button
                 className="inline-block align-baseline font-bold text-indigo-900
                 sm:text-sm
                 sm:ml-1
@@ -126,7 +126,7 @@ const SignUp = ({ setOnHome, setId, setLogin, setText }) => {
                 }}
               >
                 Already have account ?
-              </a>
+              </button>
             </div>
           </form>
         </div>

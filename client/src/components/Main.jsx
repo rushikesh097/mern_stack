@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ProductDetails from "./ProductDetails";
 import BuyedProductDetails from "./BuyedProductDetails";
-import { LINK, APP_NAME } from "../Data";
+import { USER_LINK, APP_NAME } from "../Data";
 import MoneySvg from '../assets/money.svg'
 
 const Main = (props) => {
@@ -22,7 +22,7 @@ const Main = (props) => {
   const [money, setMoney] = useState(user.balance);
   useEffect(() => {
     axios
-      .get(`${LINK}getuser/${props.id}`)
+      .get(`${USER_LINK}getuser/${props.id}`)
       .then((resonse) => {
         setUser({
           name: resonse.data[0].name,
@@ -32,7 +32,7 @@ const Main = (props) => {
         setMoney(resonse.data[0].balance);
       })
       .catch((err) => console.log(err));
-  }, []);
+  });
 
   return (
     <div>
@@ -50,7 +50,7 @@ const Main = (props) => {
             className={`flex bg-gradient-to-r ${bg} items-center flex-col  w-24 rounded-md mb-1 px-1`}
           >
             <div className="flex flex-row">
-              <img src={MoneySvg} className="w-8 p-1" />
+              <img src={MoneySvg} alt="currency" className="w-8 p-1" />
               <h4 className="text-slate-800 my-1 font-semibold">
                 &#8377;{money.toLocaleString("en-IN")}
               </h4>
@@ -75,11 +75,11 @@ const Main = (props) => {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
                 />
               </svg>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Authentication.css";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 import { APP_NAME } from "../Data";

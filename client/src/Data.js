@@ -1,5 +1,9 @@
 export const LINK = "http://localhost:3001/";
 
+export const USER_LINK = "http://localhost:3001/user/";
+
+export const COLLECTION_LINK = "http://localhost:3001/collection/";
+
 export const PATTERN =
 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

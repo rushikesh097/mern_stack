@@ -1,30 +1,25 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { useRef } from "react";
-import { LINK } from "../Data";
+import { COLLECTION_LINK } from "../Data";
 import ProductCard from "./ProductCard";
 
 const ProductDetails = (props) => {
-  const counter = useRef(0);
 
   useEffect(() => {
     axios
-      .get(`${LINK}products`)
+      .get(`${COLLECTION_LINK}products`)
       .then((resonse) => {
         props.setProducts(resonse.data);
       })
       .catch((err) => {
         console.log(err);
       });
-    counter.current = counter.current + 1;
-    console.log(counter.current);
-  }, []);
+  });
 
   const updateBalance = (id, price) => {
-    console.log(id);
     axios
-      .put(`${LINK}updatebalance`, {
+      .put(`${COLLECTION_LINK}updatebalance`, {
         id: id,
         balance: props.money - price,
       })
@@ -36,7 +31,7 @@ const ProductDetails = (props) => {
 
   const addBuyedItem = (product) => {
     axios
-      .post(`${LINK}addbuyedproduct`, {
+      .post(`${COLLECTION_LINK}addbuyedproduct`, {
         name: product.name,
         description: product.description,
         price: product.price,
@@ -60,7 +55,7 @@ const ProductDetails = (props) => {
 
   const deleteProduct = (id) => {
     axios
-      .delete(`${LINK}deleteproduct/${id}`)
+      .delete(`${COLLECTION_LINK}deleteproduct/${id}`)
       .then((resonse) => {
         props.setProducts(
           props.products.filter((product) => {

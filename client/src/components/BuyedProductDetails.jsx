@@ -1,22 +1,22 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { LINK } from "../Data";
+import { COLLECTION_LINK } from "../Data";
 import ProductCard from "./ProductCard";
 
 const BuyedProductDetails = (props) => {
   useEffect(() => {
     axios
-      .get(`${LINK}buyedproducts/${props.id}`)
+      .get(`${COLLECTION_LINK}buyedproducts/${props.id}`)
       .then((resonse) => {
         props.setBuyedItems(resonse.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  });
 
   const updateBalance = (id, price) => {
     axios
-      .put(`${LINK}updatebalance`, {
+      .put(`${COLLECTION_LINK}updatebalance`, {
         id: id,
         balance: price,
       })
@@ -27,9 +27,7 @@ const BuyedProductDetails = (props) => {
   };
 
   const deleteBuyedProduct = (id) => {
-    console.log(id);
     if (id !== undefined) {
-      console.log(id);
       props.setBuyedItems(
         props.buyedItems.filter((item) => {
           return item.id !== id;
@@ -37,9 +35,8 @@ const BuyedProductDetails = (props) => {
       );
 
       axios
-        .delete(`${LINK}deletebuyedproduct/${id}`)
+        .delete(`${COLLECTION_LINK}deletebuyedproduct/${id}`)
         .then((resonse) => {
-          console.log("Zal");
         })
         .catch((err) => console.log(err));
     }
@@ -47,7 +44,7 @@ const BuyedProductDetails = (props) => {
 
   const addProduct = (product) => {
     axios
-      .post(`${LINK}addproduct`, {
+      .post(`${COLLECTION_LINK}addproduct`, {
         name: product.name,
         description: product.description,
         price: product.price,

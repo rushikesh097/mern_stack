@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { LINK, PATTERN, INVALID_EMAIL, INVALID_EMAIL_OR_PASSWORD } from "../Data";
+import { USER_LINK, PATTERN, INVALID_EMAIL, INVALID_EMAIL_OR_PASSWORD } from "../Data";
 
 const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
   
@@ -23,7 +23,7 @@ const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
     e.preventDefault();
     if (PATTERN.test(user.email)) {
       axios
-        .post(`${LINK}validateuser`, {
+        .post(`${USER_LINK}validateuser`, {
           email: user.email,
           password: user.password,
         })
@@ -48,9 +48,9 @@ const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
     <div className="flex justify-center mt-20">
       <div className="w-30 sm:w-80 lg:w-96">
         <form className="bg-indigo-200 shadow-2xl shadow-indigo-500 rounded-md px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
+          <div className="mb-6">
             <label
-              className="block text-indigo-900 text-sm font-bold mb-2"
+              className="block text-indigo-900 text-sm font-bold mb-6"
               htmlFor="email"
             >
               E-Mail
@@ -66,7 +66,7 @@ const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
           </div>
           <div className="mb-6">
             <label
-              className="block text-indigo-900 text-sm font-bold mb-2"
+              className="block text-indigo-900 text-sm font-bold mb-6"
               htmlFor="password"
             >
               Password
@@ -89,7 +89,7 @@ const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
             >
               Sign In
             </button>
-            <a
+            <button
               className="inline-block align-baseline font-bold sm:text-sm text-indigo-900 hover:text-indigo-700 cursor-pointer text-xs"
               onClick={() => {
                 setText("Log In");
@@ -97,7 +97,7 @@ const LogIn = ({ setOnHome, setId, setLogin, setText }) => {
               }}
             >
               Don't have account ?
-            </a>
+            </button>
           </div>
         </form>
       </div>

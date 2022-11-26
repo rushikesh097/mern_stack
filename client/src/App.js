@@ -4,7 +4,7 @@ import Main from './components/Main';
 
 const App = () => {
 
-  const [isOnHome,setOnHome] = useState(true)
+  const [isOnHome,setOnHome] = useState(false)
   const [id,setId] = useState(1)
 
 
